@@ -3,14 +3,14 @@
 <html lang="en" class="no-js">
 <!-- Head -->
 <head>
-	<title>Panel de control | Sistema integrado de actividades Colombo Aleman</title>
+	<title>Autenticación de Usuarios y Roles en Laravel</title>
 
 	<!-- Meta -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<meta name="keywords" content="Sistema integrado de actividades Centro Colombo Aleman">
-	<meta name="description" content="Sistema integrado de actividades Centro Colombo Aleman (SENA)">
+	<meta name="keywords" content="Autenticación de Usuarios y Roles en Laravel">
+	<meta name="description" content="Autenticación de Usuarios y Roles en Laravel">
 	<meta name="author" content="Carlos Ferrer Hernandez">
 
 	<!-- Favicon -->
