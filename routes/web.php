@@ -17,7 +17,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+
+/*
+* Grupo de rutas de usuarios
+*/
+Route::middleware(['auth', 'role:user'])->group(function () {
+
+	Route::get('/inicio', 'HomeController@index')->name('inicio');
+
+});
 
 /*
 * Ver usuario
@@ -28,6 +37,8 @@ Route::get('/usuario/{usuario}', 'UserController@show')->name('usuarios.show');
 * Grupo de rutas de administrador
 */
 Route::middleware(['auth', 'role:admin'])->group(function () {
+
+	Route::get('/home', 'HomeController@indexAdmin')->name('home');
 
 	Route::get('/usuarios', 'UserController@index')->name('usuarios.index');
 
