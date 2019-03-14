@@ -41,12 +41,12 @@
 				                @endif
 							</div>
 							<div class="col-md-6 col-sm-12 form-group mb-4">
-								<label for="ficha_id">Asignar rol</label>
-								<select name="ficha_id" class="form-control custom-select{{ $errors->has('ficha_id') ? ' is-invalid' : '' }}" id="roles">
+								<label for="rol_id">Asignar rol</label>
+								<select name="rol_id" class="form-control custom-select{{ $errors->has('rol_id') ? ' is-invalid' : '' }}" id="roles">
 					            	<option></option>
 					            </select>
-					            @if ($errors->has('ficha_id'))
-					           	<small class="form-text invalid-feedback">{{ $errors->first('ficha_id') }}</small>
+					            @if ($errors->has('rol_id'))
+					           	<small class="form-text invalid-feedback">{{ $errors->first('rol_id') }}</small>
 					            @endif       
 							</div>
 						</div>
