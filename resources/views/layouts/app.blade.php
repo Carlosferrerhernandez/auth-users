@@ -23,6 +23,8 @@
 	<link rel="stylesheet" href="{{ asset('font-awesome/css/all.min.css')}}">
 	<link rel="stylesheet" href="{{ asset('css/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
 
+	<!-- Datatables css -->
+	<link rel="stylesheet" type="text/css" href="{{ asset('css/datatables/datatables.min.css')}}"/>
 
 	<!-- Theme Styles -->
 	<link rel="stylesheet" href="{{ asset('css/theme.css')}}">
@@ -167,7 +169,7 @@
 			<a class="link-muted d-flex align-items-center" href="#!" role="button" id="dropdownMenuLink" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">
 				<img class="u-avatar--xs img-fluid rounded-circle mr-2" src="{{ asset('img/avatars/img3.jpg')}}" alt="User Profile">
 				<span class="text-dark d-none d-sm-inline-block">
-					{{ Auth::user()->nombre }} <small class="fa fa-angle-down text-muted ml-1"></small>
+					{{ Auth::user()->name }} <small class="fa fa-angle-down text-muted ml-1"></small>
 				</span>
 			</a>
 
@@ -242,7 +244,7 @@
 									 </a>
 								</li>
 								<li class="u-sidebar-nav-menu__item">
-									 <a class="u-sidebar-nav-menu__link" href="#">
+									 <a class="u-sidebar-nav-menu__link" href="{{ route('usuarios.index')}}">
 										  <span class="u-sidebar-nav-menu__item-icon">V</span>
 										  <span class="u-sidebar-nav-menu__item-title">Ver usuarios</span>
 									 </a>
@@ -296,6 +298,19 @@
 	<script src="{{ asset('js/sidebar-nav.js')}}"></script>
 	<script src="{{ asset('js/main.js')}}"></script>
 	<script src="{{ asset('js/dashboard-page-scripts.js')}}"></script>
+
+	<!-- Datatables -->
+	<script type="text/javascript" src="{{ asset('js/datatables/datatables.min.js')}}"></script>
+
+  	<script>
+  	$(document).ready( function () {
+		$('#data-table').DataTable( {
+			 "language": {
+				  "url": "{{ asset('js/Spanish.json')}}"
+			 }
+		});
+  	} );
+  	</script>
 
 	<!-- Select2 js-->
 	<script src="{{ asset('js/select2/select2.min.js')}}"></script>
