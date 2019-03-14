@@ -35,7 +35,7 @@
 						<td>{{$usuario->name}}</td>
 						<td>{{$usuario->email}}</td>
 						@foreach ($usuario->roles as $role)
-						<td><a class="badge badge-soft-info" style="font-size: 12px;" href="#">{{$role->name}}</a></td>
+						<td><a class="badge badge-soft-info" style="font-size: 12px;" href="{{ url('usuario/' . $usuario->id)}}">{{$role->name}}</a></td>
 						@endforeach
 						<td class="text-center ">
 							<a class="link-muted" href="{{ URL::to('usuarios/' . $usuario->id . '/edit')}}" aria-expanded="false" title="Editar usuario" data-toggle="tooltip" data-placement="left"><i class="fa fa-sliders-h"></i>

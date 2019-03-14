@@ -73,12 +73,14 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
+    public function show($usuario)
+    {   
+        $usuario = User::findOrFail($usuario);
+
+        return view('users.show')->with(['usuario'=>$usuario]);
     }
 
     /**

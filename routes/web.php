@@ -29,6 +29,8 @@ Route::get('/usuarios/{usuario}/edit', 'UserController@edit')->name('usuarios.ed
 
 Route::put('/usuarios/{usuario}', 'UserController@update')->name('usuarios.update');
 
+Route::get('/usuario/{usuario}', 'UserController@show')->name('usuarios.show');
+
 Route::delete('/usuarios/{usuario}', 'UserController@destroy')->name('usuarios.destroy');
 
 Route::get('getroles', 'SearchController@getroles')->name('getroles');
