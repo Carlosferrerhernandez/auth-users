@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Hash;
+use Softon\SweetAlert\Facades\SWAL; 
 use Illuminate\Http\Request;
 use App\User;
 
@@ -63,6 +64,8 @@ class UserController extends Controller
         $user->save();
 
         $user->roles()->attach($request->rol_id);
+
+        SWAL::message('Registro exitoso!','','success',['timer'=>5000]);
 
         return back();
     }
@@ -130,6 +133,8 @@ class UserController extends Controller
 
         $user->roles()->sync($request->rol_id);
 
+        SWAL::message('Actualización exitosa!','','success',['timer'=>5000]);
+
         return back();
     }
 
@@ -142,6 +147,8 @@ class UserController extends Controller
     public function destroy($usuario)
     {
         User::destroy($usuario);
+
+        SWAL::message('Eliminado correctamente!','','success',['timer'=>5000]);
 
         return redirect('usuarios');
     }

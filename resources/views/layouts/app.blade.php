@@ -269,6 +269,9 @@
 	</aside>
 	<!-- End Sidebar -->
 
+	@include('sweetalert::cdn')
+	@include('sweetalert::view')
+
 	<div class="u-content">
 		<div class="u-body">
 			@yield('content')
