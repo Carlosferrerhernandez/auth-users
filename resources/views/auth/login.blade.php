@@ -4,7 +4,7 @@
 
 <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center bg-white mnh-100vh">
     <a class="u-login-form py-3 mb-auto" href="{{ route('home')}}">
-        <img class="img-fluid" src="{{ asset('img/logo.png')}}" width="160" alt="Centro Colombo Aleman">
+        <img class="img-fluid" src="{{ asset('img/logo.png')}}" width="160" alt="Autenticación de Usuarios y Roles en Laravel">
     </a>
 
     <div class="u-login-form">
@@ -25,7 +25,7 @@
 
             <div class="form-group mb-4">
                 <label for="email">Correo electrónico</label>
-                <input id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" type="email" placeholder="john.doe@example.com" value="{{ old('email') }}" required autofocus>
+                <input id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" type="email" placeholder="Tu correo electronico" value="{{ old('email') }}" required autofocus>
 
                 @if ($errors->has('email'))
                 <small class="form-text invalid-feedback">{{ $errors->first('email') }}</small>
@@ -58,7 +58,7 @@
     </div>
 
     <div class="u-login-form text-muted py-3 mt-auto">
-        <small><i class="far fa-question-circle mr-1"></i> Si no puede iniciar sesión,<a href="#">contáctenos</a>.</small>
+        <small><i class="far fa-question-circle mr-1"></i> Si no puede iniciar sesión,<a href="#"> contáctenos</a>.</small>
     </div>
 </div>
 
