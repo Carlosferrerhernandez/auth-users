@@ -17,15 +17,15 @@
 					<div class="container-fluid">
 						<div class="row">
 							<div class="col-md-6 col-sm-12 form-group mb-4">
-								<label for="name">name</label>
-								<input id="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" type="text" name="name" placeholder="Ingrese name del aprendiz" value="{{ old('name') }}" required>
+								<label for="name">Nombre</label>
+								<input id="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" type="text" name="name" placeholder="Ingrese nombre" value="{{ old('name') }}" required>
 								@if ($errors->has('name'))
 				                <small class="form-text invalid-feedback">{{ $errors->first('name') }}</small>
 				                @endif
 							</div>
 							<div class="col-md-6 col-sm-12 form-group mb-4">
 								<label for="email">Correo electronico</label>
-								<input id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" type="text" placeholder="Ingrese email del aprendiz" name="email" value="{{ old('email') }}" required>
+								<input id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" type="text" placeholder="Ingrese correo electronico" name="email" value="{{ old('email') }}" required>
 								@if ($errors->has('email'))
 				                <small class="form-text invalid-feedback">{{ $errors->first('email') }}</small>
 				                @endif
@@ -35,14 +35,14 @@
 						<div class="row">
 							<div class="col-md-6 col-sm-12 form-group mb-4">
 								<label for="password">Contraseña</label>
-		                        <input id="password" class="form-control form-icon-input-right{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Ingrese correo electrónico" aria-describedby="passwordHelp" value="{{ old('password') }}" required>
+		                        <input id="password" class="form-control form-icon-input-right{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Ingrese contraseña" aria-describedby="passwordHelp" value="{{ old('password') }}" required>
 		                        @if ($errors->has('password'))
 				                <small class="form-text invalid-feedback">{{ $errors->first('password') }}</small>
 				                @endif
 							</div>
 							<div class="col-md-6 col-sm-12 form-group mb-4">
 								<label for="ficha_id">Asignar rol</label>
-								<select name="ficha_id" class="form-control custom-select{{ $errors->has('ficha_id') ? ' is-invalid' : '' }}" id="fichas">
+								<select name="ficha_id" class="form-control custom-select{{ $errors->has('ficha_id') ? ' is-invalid' : '' }}" id="roles">
 					            	<option></option>
 					            </select>
 					            @if ($errors->has('ficha_id'))
@@ -61,5 +61,34 @@
 	</div>
 </form>
 <!-- End Form -->
+
+@endsection
+
+@section('scripts')
+
+<script type="text/javascript">
+	$(document).ready(function () {
+        // inicializamos el plugin
+        $('#roles').select2({
+        	placeholder: "Seleccionar un rol",
+        	theme: "bootstrap",
+            ajax: {
+            	dataType: 'json',
+            	url: '{{ url("getroles") }}',
+            	delay: 250,
+            	data: function(params) {
+            		return {
+            			term: params.term
+            		}
+            	},
+            	processResults: function (data, page) {
+            		return {
+            			results: data
+            		};
+            	},
+            }
+        });
+    });
+</script>
 
 @endsection

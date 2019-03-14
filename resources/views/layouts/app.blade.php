@@ -23,16 +23,10 @@
 	<link rel="stylesheet" href="{{ asset('font-awesome/css/all.min.css')}}">
 	<link rel="stylesheet" href="{{ asset('css/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css')}}">
 
-	<link rel="stylesheet" type="text/css" href="{{ asset('css/datatables/datatables.min.css')}}"/>
 
 	<!-- Theme Styles -->
 	<link rel="stylesheet" href="{{ asset('css/theme.css')}}">
 
-	<!-- Toastr js-->
-	<link rel="stylesheet" href="{{ asset('css/toastr/toastr.min.css')}}">
-
-	<!-- Datapicker -->
-	<link rel="stylesheet" type="text/css" href="{{ asset('/css/bootstrap-datepicker.css')}}">
 
 	<!-- Select 2 css-->
 	<link href="{{ asset('css/select2/select2.min.css')}}" rel="stylesheet"/>
@@ -302,6 +296,11 @@
 	<script src="{{ asset('js/sidebar-nav.js')}}"></script>
 	<script src="{{ asset('js/main.js')}}"></script>
 	<script src="{{ asset('js/dashboard-page-scripts.js')}}"></script>
+
+	<!-- Select2 js-->
+	<script src="{{ asset('js/select2/select2.min.js')}}"></script>
+
+	@yield('scripts')
 
 </body>
 </html>
