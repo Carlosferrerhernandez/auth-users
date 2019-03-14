@@ -5,13 +5,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
-
                 <div class="card-body">
                     @if(Auth::user()->hasRole('admin'))
-                        <div>Acceso como administrador</div>
+                        <div class="text-center">Bienvenido administrador</div>
                     @else
-                        <div>Acceso usuario</div>
+                        <div>Bienvenido</div>
                     @endif
                 </div>
             </div>
