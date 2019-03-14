@@ -230,7 +230,32 @@
 							<span class="u-sidebar-nav-menu__item-title">Inicio</span>
 						</a>
 					</li>
-					<!-- final Dashboard -->
+
+					<!-- Usuarios  -->
+					 <li class="u-sidebar-nav-menu__item">
+						  <a class="u-sidebar-nav-menu__link" href="#!"
+							  data-target="#baseUI">
+								<i class="far fa-user-circle u-sidebar-nav-menu__item-icon"></i>
+								<span class="u-sidebar-nav-menu__item-title">Usuarios</span>
+								<i class="fa fa-angle-right u-sidebar-nav-menu__item-arrow"></i>
+								<span class="u-sidebar-nav-menu__indicator"></span>
+						  </a>
+						  <ul id="baseUI" class="u-sidebar-nav-menu u-sidebar-nav-menu--second-level" style="display: none;">
+								<li class="u-sidebar-nav-menu__item">
+									 <a class="u-sidebar-nav-menu__link" href="{{ route('usuarios.create')}}">
+										  <span class="u-sidebar-nav-menu__item-icon">R</span>
+										  <span class="u-sidebar-nav-menu__item-title">Registrar usuarios</span>
+									 </a>
+								</li>
+								<li class="u-sidebar-nav-menu__item">
+									 <a class="u-sidebar-nav-menu__link" href="#">
+										  <span class="u-sidebar-nav-menu__item-icon">V</span>
+										  <span class="u-sidebar-nav-menu__item-title">Ver usuarios</span>
+									 </a>
+								</li>
+						  </ul>
+					 </li>
+					 <!-- Final usuarios  -->
 
 					<hr>
 
