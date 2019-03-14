@@ -1,47 +1,38 @@
-@extends('layouts.app')
+@extends('layouts.guest')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+<div class="col-lg-6 d-flex flex-column justify-content-center align-items-center bg-white mnh-100vh">
+    <a class="u-login-form py-3 mb-auto" href="{{ route('home')}}">
+        <img class="img-fluid" src="{{ asset('img/logo.png')}}" width="160" alt="Autenticación de Usuarios y Roles en Laravel">
+    </a>
 
-                    <form method="POST" action="{{ route('password.email') }}">
-                        @csrf
+    <div class="u-login-form">
+        <form class="mb-3" method="POST" action="{{ route('password.email') }}">
+            @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+            <h1 class="h2">Recupera tu contraseña</h1>
+            <p class="small">Si no recibe un correo electrónico, asegúrese de revisar también su carpeta de correo no deseado.</p>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+            <div class="form-group mb-4">
+                <label for="email">Tu correo electrónico</label>
+                <input id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" type="email" placeholder="carlos@example.com" value="{{ old('email') }}" required>
+                @if ($errors->has('email'))
+                <small class="form-text invalid-feedback">{{ $errors->first('email') }}</small>
+                @endif
             </div>
-        </div>
+
+            <button class="btn btn-primary btn-block" type="submit">Enviar contraseña</button>
+        </form>
+
+        <p class="small text-muted">
+            ¿Deseas regresar? <a href="{{ route('home')}}">Haz clic aqui!</a>
+        </p>
+    </div>
+
+    <div class="u-login-form text-muted py-3 mt-auto">
+        <small><i class="far fa-question-circle mr-1"></i> Si no puede recuperar su contraseña <a href="https://github.com/Carlosferrerhernandez" target="_blank">contáctanos</a>.</small>
     </div>
 </div>
+
 @endsection

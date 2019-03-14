@@ -51,14 +51,10 @@
 
             <button class="btn btn-primary btn-block" type="submit">Iniciar sesión</button>
         </form>
-
-        <p class="small">
-            ¿No tienes una cuenta? <a href="{{route('register')}}">Registrate aquí</a>
-        </p>
     </div>
 
     <div class="u-login-form text-muted py-3 mt-auto">
-        <small><i class="far fa-question-circle mr-1"></i> Si no puede iniciar sesión,<a href="#"> contáctenos</a>.</small>
+        <small><i class="far fa-question-circle mr-1"></i> Si no puede iniciar sesión,<a href="https://github.com/Carlosferrerhernandez" target="_blank"> contáctenos</a>.</small>
     </div>
 </div>
 
