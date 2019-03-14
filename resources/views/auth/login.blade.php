@@ -1,73 +1,65 @@
-@extends('layouts.app')
+@extends('layouts.guest')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+<div class="col-lg-6 d-flex flex-column justify-content-center align-items-center bg-white mnh-100vh">
+    <a class="u-login-form py-3 mb-auto" href="{{ route('home')}}">
+        <img class="img-fluid" src="{{ asset('img/logo.png')}}" width="160" alt="Centro Colombo Aleman">
+    </a>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
-                    </form>
-                </div>
+    <div class="u-login-form">
+        <form method="POST" action="{{ route('login') }}">
+            @csrf
+            <div class="mb-3">
+                <h1 class="h2">Bienvenido de nuevo!</h1>
+                <p class="small">Inicie sesión en su panel con su direccion de correo electronico y contraseña.</p>
             </div>
-        </div>
+
+            <div class="d-flex my-4">
+                <a class="btn btn-sm btn-danger px-3 mr-2" href="#">
+                    <i class="fab fa-google mr-1"></i> Inicia sesión con Google
+                </a>
+            </div>
+
+            <p class="small">O inicie sesión con su correo electrónico a continuación.</p>
+
+            <div class="form-group mb-4">
+                <label for="email">Correo electrónico</label>
+                <input id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" type="email" placeholder="john.doe@example.com" value="{{ old('email') }}" required autofocus>
+
+                @if ($errors->has('email'))
+                <small class="form-text invalid-feedback">{{ $errors->first('email') }}</small>
+                @endif
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="password">Contraseña</label>
+                <input id="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" type="password" placeholder="Tu contraseña" required>
+                @if ($errors->has('password'))
+                <small class="form-text invalid-feedback">{{ $errors->first('password') }}</small>
+                @endif
+            </div>
+
+            <div class="form-group d-flex justify-content-between align-items-center mb-4">
+                <div class="custom-control custom-checkbox">
+                    <input id="rememberMe" class="custom-control-input" name="rememberMe" type="checkbox" {{ old('rememberMe') ? 'checked' : '' }}>
+                    <label class="custom-control-label" for="rememberMe">Recordarme</label>
+                </div>
+
+                <a class="link-muted small" href="{{ route('password.request') }}">¿Olvidó su contraseña?</a>
+            </div>
+
+            <button class="btn btn-primary btn-block" type="submit">Iniciar sesión</button>
+        </form>
+
+        <p class="small">
+            ¿No tienes una cuenta? <a href="{{route('register')}}">Registrate aquí</a>
+        </p>
+    </div>
+
+    <div class="u-login-form text-muted py-3 mt-auto">
+        <small><i class="far fa-question-circle mr-1"></i> Si no puede iniciar sesión,<a href="#">contáctenos</a>.</small>
     </div>
 </div>
+
 @endsection
