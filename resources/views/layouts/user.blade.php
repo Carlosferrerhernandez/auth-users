@@ -35,7 +35,7 @@
     <!-- Header (Topbar) -->
     <header class="u-header">
         <div class="u-header-left">
-            <a class="u-header-logo" href="{{ route('home')}}">
+            <a class="u-header-logo" href="{{ route('inicio')}}">
                 <img class="u-logo-desktop" src="{{ asset('img/logo.png')}}" width="160" alt="Stream Dashboard">
                 <img class="img-fluid u-logo-mobile" src="{{ asset('img/logo-mobile.png')}}" width="50" alt="Stream Dashboard">
             </a>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -35,5 +36,20 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * Obtener la ruta de registro de registro / inicio de sesión de redirección.
+     *
+     * @return string
+     */
+    public function redirectPath()
+    {
+        if (Auth::user()->hasRole('admin')) {
+            return '/home';
+        }
+
+        return '/inicio';
+
     }
 }
