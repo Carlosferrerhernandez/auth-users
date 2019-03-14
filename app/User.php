@@ -40,14 +40,6 @@ class User extends Authenticatable
     /*
     * Relacion muchos a muchos con modelo Roles
     */
-    public function role()
-    {
-        return $this->hasMany(Role::class);
-    }
-
-    /*
-    * Relacion muchos a muchos con modelo Roles
-    */
     public function roles()
     {
         return $this->belongsToMany(Role::class)->withTimestamps();

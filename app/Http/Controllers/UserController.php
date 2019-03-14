@@ -81,24 +81,56 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($usuario)
+    {   
+        /*
+        * Obtener el usuario
+        */
+
+        $usuario = User::findOrFail($usuario);
+
+        return view('users.edit')->with(['usuario'=>$usuario]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $usuario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $usuario)
     {
-        //
+        /*
+        *   Validacion del objeto request
+        */
+
+        /*dd($request);*/
+
+        $validatedData = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            'password' => [],
+            'rol_id' => ['required'],
+        ]);
+
+        /*
+        *   Actualizacion de un usuario en la base de datos.
+        */
+        $user = User::findOrFail($usuario);
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+
+        $user->save();
+
+        $user->roles()->sync($request->rol_id);
+
+        return back();
     }
 
     /**

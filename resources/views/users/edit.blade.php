@@ -3,8 +3,11 @@
 @section('content')
 
 <!-- Form -->
-<form method="POST" action="{{ route('usuarios.store') }}">
+<form method="POST" action="{{ route('usuarios.update', $usuario->id) }}">
 	@csrf
+
+	<input type="hidden" name="_method" value="PUT">
+
 	<div class="row">
 		<div class="col-md-12">
 			<div class="card">
@@ -18,14 +21,14 @@
 						<div class="row">
 							<div class="col-md-6 col-sm-12 form-group mb-4">
 								<label for="name">Nombre</label>
-								<input id="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" type="text" name="name" placeholder="Ingrese nombre" value="{{ old('name') }}" required>
+								<input id="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" type="text" name="name" placeholder="Ingrese nombre" value="{{ $usuario->name }}" required>
 								@if ($errors->has('name'))
 				                <small class="form-text invalid-feedback">{{ $errors->first('name') }}</small>
 				                @endif
 							</div>
 							<div class="col-md-6 col-sm-12 form-group mb-4">
 								<label for="email">Correo electronico</label>
-								<input id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" type="text" placeholder="Ingrese correo electronico" name="email" value="{{ old('email') }}" required>
+								<input id="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" type="text" placeholder="Ingrese correo electronico" name="email" value="{{ $usuario->email }}" required>
 								@if ($errors->has('email'))
 				                <small class="form-text invalid-feedback">{{ $errors->first('email') }}</small>
 				                @endif
@@ -35,7 +38,7 @@
 						<div class="row">
 							<div class="col-md-6 col-sm-12 form-group mb-4">
 								<label for="password">Contraseña</label>
-		                        <input id="password" class="form-control form-icon-input-right{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Ingrese contraseña" aria-describedby="passwordHelp" required>
+		                        <input id="password" class="form-control form-icon-input-right{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Actualizar contraseña" aria-describedby="passwordHelp">
 		                        @if ($errors->has('password'))
 				                <small class="form-text invalid-feedback">{{ $errors->first('password') }}</small>
 				                @endif
