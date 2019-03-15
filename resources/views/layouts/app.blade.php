@@ -309,7 +309,7 @@
   	$(document).ready( function () {
 		$('#data-table').DataTable( {
 			 "language": {
-				  "url": "{{ asset('js/Spanish.json')}}"
+				  "url": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Spanish.json"
 			 }
 		});
   	} );

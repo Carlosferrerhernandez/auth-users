@@ -18,7 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 
-
 /*
 * Grupo de rutas de usuarios
 */
@@ -26,12 +25,9 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 
 	Route::get('/inicio', 'HomeController@index')->name('inicio');
 
-});
+	Route::get('/profile/{usuario}', 'UserController@showprofile')->name('usuarios.showprofile');
 
-/*
-* Ver usuario
-*/
-Route::get('/usuario/{usuario}', 'UserController@show')->name('usuarios.show');
+});
 
 /*
 * Grupo de rutas de administrador
@@ -47,9 +43,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 	Route::post('/usuarios', 'UserController@store')->name('usuarios.store');
 
 	Route::get('/usuarios/{usuario}/edit', 'UserController@edit')->name('usuarios.edit');
+	Route::get('/usuario/{usuario}', 'UserController@show')->name('usuarios.show');
 
 	Route::put('/usuarios/{usuario}', 'UserController@update')->name('usuarios.update');
-
 
 	Route::delete('/usuarios/{usuario}', 'UserController@destroy')->name('usuarios.destroy');
 
