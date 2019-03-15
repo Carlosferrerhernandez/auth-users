@@ -173,7 +173,7 @@
                     <div class="card-body">
                         <ul class="list-unstyled mb-0">
                             <li class="mb-4">
-                                <a class="d-flex align-items-center link-dark" href="#!">
+                                <a class="d-flex align-items-center link-dark" href="{{ route('perfil')}}">
                                     <span class="h3 mb-0"><i class="far fa-user-circle text-muted mr-2"></i></span> Ver perfil
                                 </a>
                             </li>

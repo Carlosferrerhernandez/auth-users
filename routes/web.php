@@ -25,7 +25,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 
 	Route::get('/inicio', 'HomeController@index')->name('inicio');
 
-	Route::get('/profile/{usuario}', 'UserController@showprofile')->name('usuarios.showprofile');
+	Route::get('/perfil', 'UserController@showprofile')->name('perfil');
 
 });
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Softon\SweetAlert\Facades\SWAL; 
 use Illuminate\Http\Request;
+use Auth;
 use App\User;
 
 class UserController extends Controller
@@ -81,6 +82,22 @@ class UserController extends Controller
         $usuario = User::findOrFail($usuario);
 
         return view('users.show')->with(['usuario'=>$usuario]);
+    }
+
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $usuario
+     * @return \Illuminate\Http\Response
+     */
+    public function showprofile()
+    {   
+        $user = Auth::user()->id;
+
+        $usuario = User::findOrFail($user);
+
+        return view('users.profile')->with(['usuario'=>$usuario]);
     }
 
     /**
